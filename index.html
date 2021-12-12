@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>Memes</title>
+    <style>
+body{
+    background-color: rgb(11, 209, 240);
+    
+}
+.image{
+  width: 75vw;
+  height: 75vh;
+  margin-left: 150px;
+}
+h1:hover{
+    background-color: rgb(255, 0, 119);
+    color:yellow
+}
+body:hover{
+    background-color: rgb(102, 255, 71);
+}
+button{
+    background-color: tomato;
+    border-radius: 8px;
+    margin-left: 580px;
+    padding: 10px;
+    color:whitesmoke;
+    border:none;
+    font-weight: bold;
+    font-family:sans-serif;
+    font-size: larger;
+}
+button:hover{
+    background-color: rgb(36, 15, 230);
+    color: yellow;
+}
+    </style>
+</head>
+<body>
+    <h1 style = "text-align: center; ">Memes</h1>
+    <button>Change the Memes</button>
+    <p id = "i1"></p>
+   
+    <script>
+fetch('https://meme-api.herokuapp.com/gimme')
+.then(res=>res.json())
+    .then(info => {    
+            let url = info.url;
+            var image = document.getElementById('i1'); 
+            i1.innerHTML = "<img src='" + url + "' class='image' >"      
+})
+function changethememes()
+
+{
+    location.reload();
+}
+document.querySelector('button').addEventListener('click',changethememes);
+    </script>
+</body>
+</html>
